@@ -16,26 +16,19 @@ gsap.to(".elem", {
     ease: Power1,
 });
 let sections = document.querySelectorAll(".elem");
-// Shery.imageEffect(".images", {
-//   style: 1,
-// //   config: { onMouse: { value: 1 } },
-//   slideStyle: (setScroll) => {
-//     sections.forEach(function (section, index) {
-//       ScrollTrigger.create({
-//         trigger: section,
-//         start: "top top",
-//         scrub: 1,
-//         onUpdate: function (prog) {
-//           setScroll(prog.progress + index);
-//         },
-//       });
-//     });
-//   },
-// });
 Shery.imageEffect(".images", {
-    style: 3,
-    scrollSnapping: true,
-    scrollSpeed: 6,
-    touchSpeed: 6,
-    damping: 7,
-  });
+  style: 1,
+  config: { onMouse: { value: 1 } },
+  slideStyle: (setScroll) => {
+    sections.forEach(function (section, index) {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        scrub: 1,
+        onUpdate: function (prog) {
+          setScroll(prog.progress + index);
+        },
+      });
+    });
+  },
+});
